@@ -3,6 +3,8 @@ const COLS = 7;
 let board;
 let currentPlayer;
 let startTime;
+const aiDepth = 6; // Fixed depth
+
 const boardDiv = document.getElementById('board');
 const message = document.getElementById('message');
 const timer = document.getElementById('timer');
@@ -139,7 +141,7 @@ function makeMoveTemp(b, col, player) {
 }
 
 function getBestMoveMinimax() {
-  const [, move] = minimax(board, 4, -Infinity, Infinity, true, 2);
+  const [, move] = minimax(board, aiDepth, -Infinity, Infinity, true, 2);
   return move;
 }
 
